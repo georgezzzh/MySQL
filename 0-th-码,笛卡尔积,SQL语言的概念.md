@@ -30,3 +30,13 @@
 ### 查询语言
 
 SQL语言是非过程化语言
+
+### SQL语言中的几个部分
+
+* 数据定义语言(Data-Definition Language,DDL),SQL DDL提供定义关系模式，删除关系以及修改关系模式的命令
+* 数据操纵语言(Data-Manipulation Language,DML):SQL DML提供从数据库中查询信息，以及在数据库中插入元组，删除元组，修改元组的能力。
+* 完整性
+* 视图定义
+* 事务控制
+* 嵌入式SQL和动态SQL：嵌入式和动态SQL定义SQL语句如何嵌入到通用编程语言，如C，Java等
+* 授权：SQL DDL包括定义对关系和试图的访问权限的命令。
