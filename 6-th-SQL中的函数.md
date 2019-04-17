@@ -1,16 +1,18 @@
-## SQL中的函数的定义
+## SQL中的函数(function)
 
 1. 定义一个简单的函数
 
    ```sql
    set global log_bin_trust_function_creators=TRUE;
-   
+   # 如果函数存在就先删除，再创建
+   drop function if exists simpleFun;
    CREATE FUNCTION  simpleFun() 
    RETURNS VARCHAR(20) 
    return "hello";
    # 调用函数
    select simpleFun();
    ```
+
 2. 定义一个复杂的查询函数
 
       ```sql
@@ -27,9 +29,8 @@
       end
       //
       # 最后一行delimiter不要写了，写了会报错
+      # 调用函数
       select deleteById('22222');
-      
-      
       ```
 
       * delimiter 后面跟上一个符号用来声明一段函数，不会遇到";"就结束,这个符号在函数结尾再出现一次
@@ -41,7 +42,6 @@
    use university;
    
    drop function if exists my_sum;
-   
    delimiter //
    create function my_sum(x int) returns int
    begin
@@ -62,6 +62,19 @@
    * 用`set @varName=initParam;`来声明变量；
 
 4. 使用if流程判断语句
+
+   if-then-else语句语法
+
+   ```java
+   if bool_expression
+   	then ....
+    elseif bool_expression
+    	then ....
+    else  ...
+    end if
+   ```
+
+   一个实例
 
    ```sql
    use university;
@@ -84,7 +97,7 @@
 
    * 函数体中的hour()和now()是SQL中固有的函数
 
-5.  用declare定义变量
+5. 用declare定义变量
 
    ```sql
    use university;
@@ -108,9 +121,11 @@
    
    ```
 
-   * declare在过程之前定义，set可以在任意地方定义
+   6. declare和set的区别
 
-## SQL过程
+   declare在过程之前定义，set可以在任意地方定义
+
+## SQL过程(procedure)
 
 1. ### out参数
 
