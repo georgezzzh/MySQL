@@ -37,7 +37,9 @@ sql查询默认不去重，去重需要指定DISTINCT关键词
     foreign  key (dept_name)  references  department(dept_name)
     //在instructor中的表的外键dept_name
     //设置删除信息自动解除外键
-    on delete set null;   
+    on delete set null; 
+`on delete cascade`,是级联操作，如果被引用的内容删除了，引用外键的内容也会被删除。`on delete set null`仅仅是被引用的删除了，引用的外键属性设置为    
+
 ## 更名运算
 1. 重命名结果关系中属性
     SELECT avg(salary) as average_salary from instructor;
