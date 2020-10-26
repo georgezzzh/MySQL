@@ -1,3 +1,4 @@
+[数据库第六版官网](https://www.db-book.com/db6/lab-dir/sample_tables-dir/index.html),提供书中关系模式的DDL定义。
 ## 创建数据库
 ```sql
 create database myfirstdatabase;
@@ -12,8 +13,8 @@ use myfirstdatabase;
 ```
 ## 在命令行下使用SQL文件进行数据库操作
 ```sql
-source xxx/xxx.sql
-//xxx/xxx.sql代表sql文件的绝对路径
+# DDL.sql代表sql文件的绝对路径
+source ~/Downloads/DDL.sql
 ```
 ## 查看某个数据库中所有表
 ```sql
@@ -38,14 +39,14 @@ drop table instructor;
 
 ```sql
 delete from instructor;
-//不指明where，默认全部
+# 不指明where，默认全部
 ```
 ## 增加表的列
     ALTER TABLE r ADD a d
 r是表名，a是列名，d是列的类型   
 
     ALTER TABLE instructor ADD sex varchar(5);
-    //增加属性sex
+    # 增加属性sex
 ## 删除表的列
     ALTER TABLE r DROP a
 r是表名，a是列的值   
