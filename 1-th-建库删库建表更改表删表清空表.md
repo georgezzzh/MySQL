@@ -30,6 +30,15 @@ create table instructor
     primary key (ID)
     );
 ```
+
+### 查看表的列
+```sql
+show columns from instructor;
+# 等同于
+describe instructor;
+# 等同于
+desc instructor;
+```
 ## 删除表
 ```sql
 drop table instructor;
