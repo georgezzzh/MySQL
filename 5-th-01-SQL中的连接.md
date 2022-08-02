@@ -15,11 +15,30 @@ select * from instructor,teaches where  instructor.course_id=teaches.course_id;
 ### 2. 等值连接
 
 * 选择所有上课的老师
-1. 分别从teaches表和instrucor表抽取，令其ID相等即可   
+1. 分别从teaches表和instrucor表抽取，令其ID相等即可
 
-        SELECT * FROM instructor,teaches
-        WHERE instructor.ID=teaches.ID
+```sql
+SELECT * FROM instructor,teaches
+WHERE instructor.ID=teaches.ID
+```
 
+还可以一张相同的表进行连接，自身与自身进行连接。
+Products表结构
+```
++---------+---------+--------------+------------+----------------------------------------------------------------+
+| prod_id | vend_id | prod_name    | prod_price | prod_desc                                                      |
++---------+---------+--------------+------------+----------------------------------------------------------------+
+| ANV01   |    1001 | .5 ton anvil |       5.99 | .5 ton anvil, black, complete with handy hook                  |
+| ANV02   |    1001 | 1 ton anvil  |       9.99 | 1 ton anvil, black, complete with handy hook and carrying case |
+| ANV03   |    1001 | 2 ton anvil  |      14.99 | 2 ton anvil, black, complete with handy hook and carrying case |
++---------+---------+--------------+------------+----------------------------------------------------------------+
+```
+现在有个需求是，找出prod_id='DTNTR'的相同供应商(vend_id)的其他prod_id：
+现在需要Products表与自身进行连接，为了避免混淆需要起别名。
+```sql
+select a.prod_id, a.prod_name from products as a, products as b 
+        where a.vend_id=b.vend_id and b.prod_id='DTNTR';
+```
 ### 3. 自然连接
 
 自然连接只考虑那些再关系模式中都出现的属性上取值相同的元组对，默认会去除重复的属性(即只保留一列相同属性的一列，这里有别于笛卡尔连接)
