@@ -30,6 +30,16 @@ create table instructor
     primary key (ID)
     );
 ```
+创建一个索引自增的表
+```sql
+create table orderitems
+(
+    order_num int auto_increment,
+    order_item int not null,
+    quantity int not null default 1,
+    item_price decimal(8,2),
+)engine=InnoDB;
+```
 
 ### 查看表的列
 ```sql
