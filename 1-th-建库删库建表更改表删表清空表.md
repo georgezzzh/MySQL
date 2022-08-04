@@ -72,5 +72,7 @@ r是表名，a是列的值
 
     ALTER TABLE instructor DROP sex;
 
-
-
+## 重命名表
+```sql
+rename table customer2 to customer;
+```
