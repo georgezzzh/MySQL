@@ -27,19 +27,28 @@ sql查询默认不去重，去重需要指定DISTINCT关键词
 
 逻辑连词的运算对象可以包含比较运算符   `=、<、<=、>、>=、<>(不等于)、!=`
 
-## 更改某一个记录中的值
-    UPDATE t SET r='newvalue' WHERE r1='r1Value'
-    //例如
-    UPDATE department SET building='Einstein' WHERE dept_name='Physics';
 ## 指定主键
     primary key (ID)
 ## 指定外键
+在创建表的时候指定
+```sql
     foreign  key (dept_name)  references  department(dept_name)
     //在instructor中的表的外键dept_name
     //设置删除信息自动解除外键
     on delete set null; 
+```
 `on delete cascade`,是级联操作，如果被引用的内容删除了，引用外键的内容也会被删除。`on delete set null`仅仅是被引用的删除了，引用的外键属性设置为    
 
+## 增加外键
+```sql
+# 其中外键的名字是 fk_orderitems_orders
+alter table orderitems add constraint fk_orderitems_orders foreign key(order_num) references orders(order_num);
+```
+## 查询外键
+查看创建表时候的约束
+```
+show create table orderitems;
+```
 ## 更名运算
 1. 重命名结果关系中属性
     SELECT avg(salary) as average_salary from instructor;
